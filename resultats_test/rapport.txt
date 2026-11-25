@@ -1,0 +1,33 @@
+AVERTISSEMENT : données simulées. Résultats purement techniques, sans valeur clinique.
+Analyse au niveau de l'œil ; séparation et intervalles de confiance regroupés par patient.
+
+RAPPORT - Détection du glaucome débutant par XGBoost (CV 24-2)
+====================================================================
+Patients : 160 ; yeux : 320 (OD : 160, OG : 160)
+Yeux avec glaucome : 107
+Apprentissage : 128 patients / 256 yeux ; test : 32 patients / 64 yeux
+AUC validation croisée groupée : 0.726
+Score de Brier validation croisée : 0.209
+
+MODÈLE PRINCIPAL (jeu de test)
+  AUC : 0.659 ; IC95 bootstrap patient [50.6 % ; 79.5 %]
+  Seuil specificite_95 (0.93) : sensibilité 9.1 % [0.0 % ; 22.7 %], spécificité 100.0 % [100.0 % ; 100.0 %]
+  Seuil specificite_90 (0.74) : sensibilité 40.9 % [21.1 % ; 60.0 %], spécificité 85.7 % [75.7 % ; 94.7 %]
+  Seuil youden (0.50) : sensibilité 54.5 % [34.8 % ; 75.0 %], spécificité 76.2 % [63.6 % ; 88.4 %]
+
+COMPARATEURS (jeu de test)
+  Logistique MD+PSD : AUC 0.882 ; IC95 bootstrap patient [78.1 % ; 97.3 %]
+  Random forest : AUC 0.824 ; IC95 bootstrap patient [71.1 % ; 91.9 %]
+  GHT (limite = négatif) : sensibilité 22.7 %, spécificité 100.0 % (IC95 bootstrap patient disponibles dans resultats.json)
+  GHT (limite = positif) : sensibilité 54.5 %, spécificité 88.1 % (IC95 bootstrap patient disponibles dans resultats.json)
+  lecteur_1 : sensibilité 68.2 %, spécificité 92.9 % (IC95 bootstrap patient disponibles dans resultats.json)
+  lecteur_2 : sensibilité 54.5 %, spécificité 88.1 % (IC95 bootstrap patient disponibles dans resultats.json)
+  lecteur_3 : sensibilité 81.8 %, spécificité 95.2 % (IC95 bootstrap patient disponibles dans resultats.json)
+  Accord entre lecteurs (kappa de Fleiss, descriptif) : 0.44
+
+MODÈLE SECONDAIRE EXPLORATOIRE (52 points + age, sexe_f, atcd_familial, pachymetrie)
+  AUC 0.735 ; IC95 bootstrap patient [60.2 % ; 85.6 %]
+
+Les p-values DeLong/McNemar classiques ne sont pas calculées : elles supposent
+des observations indépendantes et ne sont pas adaptées ici aux deux yeux d'un patient.
+Figures : courbes_roc.png, calibration.png, importance_points.png

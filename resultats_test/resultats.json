@@ -1,0 +1,165 @@
+{
+  "avertissement": "Données simulées : aucune valeur clinique.",
+  "unite_analyse": "œil, avec séparation et bootstrap regroupés par patient",
+  "effectifs": {
+    "patients": 160,
+    "yeux": 320,
+    "yeux_glaucome": 107,
+    "patients_apprentissage": 128,
+    "yeux_apprentissage": 256,
+    "patients_test": 32,
+    "yeux_test": 64,
+    "yeux_OD": 160,
+    "yeux_OG": 160
+  },
+  "hyperparametres": {
+    "max_depth": 3,
+    "learning_rate": 0.04074444580206757,
+    "n_estimators": 1000,
+    "subsample": 0.6355596086592517,
+    "colsample_bytree": 0.7396449298400908,
+    "min_child_weight": 10,
+    "reg_lambda": 1.9814108901891814
+  },
+  "AUC_validation_croisee_groupes": 0.7257653938768489,
+  "seuils": {
+    "specificite_95": 0.9343719482421875,
+    "specificite_90": 0.736197292804718,
+    "youden": 0.5031954646110535
+  },
+  "brier_validation_croisee": 0.20943238968047534,
+  "XGBoost": {
+    "AUC": 0.6590909090909091,
+    "AUC_IC95_bootstrap_patient": [
+      0.5058286838426684,
+      0.795132520442639
+    ],
+    "specificite_95": {
+      "sensibilite": 0.09090909090909091,
+      "specificite": 1.0,
+      "sensibilite_IC95_cluster": [
+        0.0,
+        0.22727272727272727
+      ],
+      "specificite_IC95_cluster": [
+        1.0,
+        1.0
+      ]
+    },
+    "specificite_90": {
+      "sensibilite": 0.4090909090909091,
+      "specificite": 0.8571428571428571,
+      "sensibilite_IC95_cluster": [
+        0.21052631578947367,
+        0.6
+      ],
+      "specificite_IC95_cluster": [
+        0.7567567567567568,
+        0.9473684210526315
+      ]
+    },
+    "youden": {
+      "sensibilite": 0.5454545454545454,
+      "specificite": 0.7619047619047619,
+      "sensibilite_IC95_cluster": [
+        0.34778428093645486,
+        0.75
+      ],
+      "specificite_IC95_cluster": [
+        0.6363082039911309,
+        0.8837209302325582
+      ]
+    }
+  },
+  "comparateurs": {
+    "Logistique MD+PSD": {
+      "AUC": 0.882034632034632,
+      "AUC_IC95_bootstrap_patient": [
+        0.780669981060606,
+        0.973494572351176
+      ]
+    },
+    "Random forest": {
+      "AUC": 0.8235930735930737,
+      "AUC_IC95_bootstrap_patient": [
+        0.7109104633859358,
+        0.9193413576555022
+      ]
+    },
+    "GHT (limite = négatif)": {
+      "sensibilite": 0.22727272727272727,
+      "specificite": 1.0,
+      "sensibilite_IC95_cluster": [
+        0.06666666666666667,
+        0.4
+      ],
+      "specificite_IC95_cluster": [
+        1.0,
+        1.0
+      ]
+    },
+    "GHT (limite = positif)": {
+      "sensibilite": 0.5454545454545454,
+      "specificite": 0.8809523809523809,
+      "sensibilite_IC95_cluster": [
+        0.375,
+        0.7371710526315786
+      ],
+      "specificite_IC95_cluster": [
+        0.7777777777777778,
+        0.9714484126984126
+      ]
+    },
+    "lecteur_1": {
+      "sensibilite": 0.6818181818181818,
+      "specificite": 0.9285714285714286,
+      "sensibilite_IC95_cluster": [
+        0.4782608695652174,
+        0.8571428571428571
+      ],
+      "specificite_IC95_cluster": [
+        0.8461538461538461,
+        1.0
+      ]
+    },
+    "lecteur_2": {
+      "sensibilite": 0.5454545454545454,
+      "specificite": 0.8809523809523809,
+      "sensibilite_IC95_cluster": [
+        0.2939075630252101,
+        0.782608695652174
+      ],
+      "specificite_IC95_cluster": [
+        0.7804878048780488,
+        0.9737010796221323
+      ]
+    },
+    "lecteur_3": {
+      "sensibilite": 0.8181818181818182,
+      "specificite": 0.9523809523809523,
+      "sensibilite_IC95_cluster": [
+        0.65,
+        0.9565217391304348
+      ],
+      "specificite_IC95_cluster": [
+        0.8835791264889393,
+        1.0
+      ]
+    }
+  },
+  "note_statistique": "IC par bootstrap de patients : les deux yeux d'un patient sont rééchantillonnés ensemble. Les p-values DeLong/McNemar classiques sont retirées car elles ne tiennent pas compte de la corrélation entre les deux yeux.",
+  "kappa_fleiss_lecteurs_descriptif": 0.43941605839416065,
+  "modele_secondaire": {
+    "variables_ajoutees": [
+      "age",
+      "sexe_f",
+      "atcd_familial",
+      "pachymetrie"
+    ],
+    "AUC": 0.7348484848484849,
+    "AUC_IC95_bootstrap_patient": [
+      0.6020459235634649,
+      0.8562754258835494
+    ]
+  }
+}

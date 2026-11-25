@@ -1,0 +1,5 @@
+date,patient_id,oeil,niveau_risque,indice_ia_pct,deviation_moyenne_dB
+2026-11-23 14:44,P0032,OD,Risque FAIBLE — Champ visuel rassurant,35.4,-0.52
+2026-11-23 14:44,P0032,OG,Risque FAIBLE — Champ visuel rassurant,7.6,-0.21
+2026-11-23 14:50,P0154,OD,Risque FAIBLE — Champ visuel rassurant,19.1,-0.31
+2026-11-23 14:50,P0154,OG,Risque FAIBLE — Champ visuel rassurant,15.5,-0.23
